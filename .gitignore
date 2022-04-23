@@ -1,0 +1,5 @@
+.stack-work/
+*~
+.idea/
+.DS_STORE
+out/
