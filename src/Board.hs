@@ -8,7 +8,8 @@ data Row
   deriving Eq
   
 instance Show Row where
-  show (Row _ c) = map (\x -> chr (48 + if x then 1 else 0)) c
+  -- (\x -> if x then '■' else '□')
+  show (Row _ c) = map (\x -> if x then '●' else '◯') c
 
 stringToList :: String -> [Bool]
 stringToList "" = []
@@ -21,14 +22,15 @@ instance Read Row where
 makeRow :: [Bool] -> Row
 makeRow list = Row (length list) list
 
--- num rows, num columns, list of rows
 data Board = Board {rowNum :: Int, columnNum ::Int, boardData :: [Row]}
-  deriving (Eq, Show)
+  deriving (Eq)
+
+instance Show Board where
+  show (Board _ _ b) = unlines (map show b)
 
 instance Read Board where
   readsPrec _ s =
     let b = map read (lines s) :: [Row]
      in [(Board (length b) (len (head b)) b, "")]
 
--- zip everything and lazily evaluate them
 
