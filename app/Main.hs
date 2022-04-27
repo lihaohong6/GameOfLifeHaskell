@@ -1,6 +1,10 @@
 module Main where
-
-import Lib
-
+import Control.Concurrent
+import Board (Board)
 main :: IO ()
-main = someFunc
+main = do 
+ putStrLn "Please input your file name: "
+ fileName <- getLine
+ f <- readFile fileName
+ putStrLn (show (read f :: Board))
+ threadDelay 1000000
