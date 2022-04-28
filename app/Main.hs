@@ -9,7 +9,7 @@ printNext (b:xs) = print b >> hFlush stdout >> threadDelay 300000 >> printNext x
 
 main :: IO ()
 main = do 
- putStrLn "Please input your file name: "
+ putStrLn "Please input your file path: "
  hFlush stdout
  fileName <- getLine
  f <- readFile fileName
