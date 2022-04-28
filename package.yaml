@@ -46,4 +46,3 @@ tests:
     - -with-rtsopts=-N
     dependencies:
     - GameOfLife
-    - QuickCheck
