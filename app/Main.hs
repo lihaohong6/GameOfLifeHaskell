@@ -5,6 +5,7 @@ import Control.Concurrent
 import Control.Exception.Base (try)
 import Simulation
 import System.IO (hFlush, stdout)
+import GHC.IO.Encoding (setLocaleEncoding, utf8)
 
 printNext :: [Board] -> IO ()
 printNext (b : xs) = print b >> hFlush stdout >> threadDelay 300000 >> printNext xs
@@ -25,5 +26,6 @@ getFileString = do
 
 main :: IO ()
 main = do
+  setLocaleEncoding utf8
   s <- getFileString
   printNext (iterate next (read s))
