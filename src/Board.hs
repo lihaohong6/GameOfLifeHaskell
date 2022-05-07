@@ -7,8 +7,13 @@ import Data.Char (chr)
 data Row
   = Row {len :: Int, cells :: [Bool]}
   deriving Eq
+<<<<<<< HEAD
   
 -- If the number is 1 then out put '●', otherwise output '◯'.
+=======
+
+-- '●' is living cell, '◯' is dead cell
+>>>>>>> 5de40d35fc712fde78a75b9153628a867a6096bf
 instance Show Row where
   -- (\x -> if x then '■' else '□')
   show (Row _ c) = map (\x -> if x then '●' else '◯') c
