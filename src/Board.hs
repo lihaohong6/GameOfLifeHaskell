@@ -6,7 +6,8 @@ import Data.Char (chr)
 data Row
   = Row {len :: Int, cells :: [Bool]}
   deriving Eq
-  
+
+-- '●' is living cell, '◯' is dead cell
 instance Show Row where
   -- (\x -> if x then '■' else '□')
   show (Row _ c) = map (\x -> if x then '●' else '◯') c
