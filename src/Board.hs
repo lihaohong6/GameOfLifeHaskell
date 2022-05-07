@@ -7,7 +7,6 @@ import Data.Char (chr)
 data Row
   = Row {len :: Int, cells :: [Bool]}
   deriving Eq
-<<<<<<< HEAD
   
 -- If the number is 1 then out put '●', otherwise output '◯'.
 -- '●' is living cell, '◯' is dead cell
