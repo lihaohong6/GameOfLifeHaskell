@@ -10,6 +10,7 @@ import GHC.IO.Encoding (setLocaleEncoding, utf8)
 printNext :: [Board] -> IO ()
 printNext (b : xs) = print b >> hFlush stdout >> threadDelay 300000 >> printNext xs
 
+-- get file path from user
 getFileString :: IO String
 getFileString = do
   putStrLn "Please input your file path: "
@@ -24,6 +25,7 @@ getFileString = do
     Right contents ->
       return contents
 
+-- set up encoding for cell display, get initial configuration, and iterate generations
 main :: IO ()
 main = do
   setLocaleEncoding utf8
