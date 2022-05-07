@@ -7,6 +7,7 @@ data Row
   deriving Eq
 
 -- If the list element is True then output '●', otherwise output '◯'.
+-- '●' is living cell, '◯' is dead cell
 instance Show Row where
   show (Row _ c) = map (\x -> if x then '●' else '◯') c
 
@@ -15,7 +16,7 @@ stringToList :: String -> [Bool]
 stringToList "" = []
 stringToList (x:xs) = (x == '1') : stringToList xs
 
-
+-- read the input information about rows
 instance Read Row where
   readsPrec _ s = let r = stringToList s
     in [(Row (length r) (stringToList s), "")]
