@@ -10,10 +10,7 @@ data Row
 <<<<<<< HEAD
   
 -- If the number is 1 then out put '●', otherwise output '◯'.
-=======
-
 -- '●' is living cell, '◯' is dead cell
->>>>>>> 5de40d35fc712fde78a75b9153628a867a6096bf
 instance Show Row where
   -- (\x -> if x then '■' else '□')
   show (Row _ c) = map (\x -> if x then '●' else '◯') c
@@ -23,7 +20,8 @@ stringToList :: String -> [Bool]
 stringToList "" = []
 stringToList (x:xs) = (x == '1') : stringToList xs
 
-
+-- read the input information about rows
+-- 
 instance Read Row where
   readsPrec _ s = let r = stringToList s
     in [(Row (length r) (stringToList s), "")]
