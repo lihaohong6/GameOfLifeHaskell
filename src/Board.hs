@@ -31,7 +31,8 @@ instance Show Board where
   show (Board _ _ b) = unlines (map show b)
 
 -- read the input information about board
--- b is the list of strings and head b is the first row of the board
+-- convert several lines into a list of Row and store it in b
+-- head b is the first row of the board
 -- therefore, len(b) is the num of rows, and len (head b) is the num of cols
 instance Read Board where
   readsPrec _ s =
